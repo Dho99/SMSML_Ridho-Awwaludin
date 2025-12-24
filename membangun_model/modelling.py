@@ -24,7 +24,8 @@ with mlflow.start_run():
     # Log parameters
     n_estimators = 505
     max_depth = 37
-    mlflow.autolog()
+    mlflow.autolog(log_models=False)
+    
     # Train model
     model = RandomForestClassifier(n_estimators=n_estimators, max_depth=max_depth)
     mlflow.sklearn.log_model(
@@ -35,4 +36,6 @@ with mlflow.start_run():
     model.fit(X_train, y_train)
     # Log metrics
     accuracy = model.score(X_test, y_test)
-    mlflow.log_metric("accuracy", accuracy)
+    # mlflow.log_metric("accuracy", accuracy)
+    # mlflow.log_artifact("training_confusion_matrix.png")
+    # mlflow.log_artifacts("model", artifact_path="model_folder_logs")

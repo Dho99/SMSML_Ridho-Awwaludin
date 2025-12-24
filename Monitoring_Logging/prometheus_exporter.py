@@ -32,7 +32,7 @@ def predict():
     THROUGHPUT.inc()  # Tambah throughput (request per detik)
  
     # Kirim request ke API model
-    api_url = "http://127.0.0.1:5002/detect_churn"
+    api_url = "http://127.0.0.1:5002/invocations"
     data = request.get_json()
  
     try:

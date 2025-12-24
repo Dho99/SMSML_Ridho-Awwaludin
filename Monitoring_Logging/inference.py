@@ -6,7 +6,7 @@ def test_detect_churn():
     url = "http://127.0.0.1:8000/predict"
 
     try:
-        df_preprocessed = pd.read_csv("preprocessing/ecommerce_customer_churn_dataset_preprocessing.csv")
+        df_preprocessed = pd.read_csv("ecommerce_customer_churn_dataset_preprocessing.csv")
         sample_row = df_preprocessed.drop(columns=['Churned']).iloc[[0]]
     except FileNotFoundError:
         print("File preprocessing tidak ditemukan. Pastikan jalur file benar.")
@@ -29,6 +29,8 @@ def test_detect_churn():
             json=payload, 
             headers={"Content-Type": "application/json"}
         )
+
+        print(url)
 
         if response.status_code == 200:
             print("Status: Berhasil (200)")

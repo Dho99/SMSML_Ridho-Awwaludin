@@ -24,7 +24,7 @@ with mlflow.start_run():
     # Log parameters
     n_estimators = 505
     max_depth = 37
-    mlflow.autolog(log_models=False)
+    mlflow.autolog()
     # Train model
     model = RandomForestClassifier(n_estimators=n_estimators, max_depth=max_depth)
     model.fit(X_train, y_train)
